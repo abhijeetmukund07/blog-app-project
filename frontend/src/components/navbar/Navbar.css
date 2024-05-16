@@ -1,0 +1,15 @@
+.mynav{
+    position: sticky;
+    top: 0;
+    background-color: #FCF5E5;
+    font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>;*/
+  font-style: normal; 
+  z-index: 999;
+}
+
+#bloggify-branding{
+    font-weight:normal;
+    font-size: xx-large;
+}

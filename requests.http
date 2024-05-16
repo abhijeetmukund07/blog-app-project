@@ -1,0 +1,113 @@
+### user registration
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userType" : "user",
+    "username" : "abhi",
+    "email" : "abhijeet@mail.com",
+    "password" : "12345"
+}
+
+
+### user login request
+POST http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "userType" : "user",
+    "username" : "abhijeet",
+    "password" : "1234"
+}
+
+
+### author registration
+POST http://localhost:4000/author-api/user
+Content-Type: application/json
+
+{
+    "userType" : "author",
+    "username" : "Sathvik Naidu",
+    "email" : "sathvik@mail.com",
+    "password" : "12345"
+
+}
+
+
+### author login
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "userType" : "author",
+    "username" : "Sathvik Naidu",
+    "password" : "12345"
+}
+
+### get a single article 1710354831056
+GET http://localhost:4000/author-api/article/1710354831056
+
+### new article creation by author
+POST http://localhost:4000/author-api/new-article
+Content-Type: application/json
+
+{
+    "articleId" : "{{$timestamp}}",
+    "title" : "Fundamentals of JavaScript",
+    "category": "Programming",
+    "content": "This section is dedicated to the JavaScript language itself, and not the parts that are specific to Web pages or other host environments. For information about APIs that are specific to Web pages, please see Web APIs and DOM.",
+    "dateOfCreation": "{{$datetime iso8601}}",
+    "dateOfModification": "{{$datetime iso8601}}",
+    "username" : "Sathvik",
+    "comments" : [ ],
+    "status" : true
+}
+
+### get articles of author by username
+GET  http://localhost:4000/author-api/articles/Sathvik
+
+
+### edit an article
+PUT http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "articleId" : "1709997786",
+    "title" : "Fundamentals of JS",
+    "category": "Programming",
+    "content": "Abhi, This section is dedicated to the JavaScript language itself.",
+    "dateOfCreation": "2024-03-09T15:23:06.588Z",
+    "dateOfModification": "{{$datetime iso8601}}",
+    "username" : "Sathvik",
+    "comments" : [ ],
+    "status" : true
+}
+
+###soft delete(updating the status to false) of article by author
+PUT http://localhost:4000/author-api/article/1709997786
+Content-Type: application/json
+
+{
+    "articleId" : "1709997786",
+    "title" : "Fundamentals of JS",
+    "category": "Programming",
+    "content": "Abhi, This section is dedicated to the JavaScript language itself.",
+    "dateOfCreation": "2024-03-09T15:23:06.588Z",
+    "dateOfModification": "{{$datetime iso8601}}",
+    "username" : "Sathvik",
+    "comments" : [ ],
+    "status" : false
+}
+
+### get all articles by user
+GET http://localhost:4000/user-api/articles
+
+
+### add comments
+POST http://localhost:4000/user-api/comment/1709997786
+Content-Type: application/json
+
+{
+    "username" : "abhi",
+    "comment" : "Amazing content!"
+}
